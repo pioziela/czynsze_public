@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'create_pdf_documents',
+    'crispy_forms',
+    'bootstrapform',
 ]
 
 MIDDLEWARE = [
@@ -55,7 +57,7 @@ ROOT_URLCONF = 'naliczenia_czynszow.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ["templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -119,3 +121,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = ('%s/static/'% (BASE_DIR),)
+
+LOGIN_URL = 'login'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
