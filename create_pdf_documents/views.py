@@ -1,13 +1,18 @@
 from django.contrib.auth.views import LoginView
 from .forms import CustomAuthenticationForm
-from django.contrib.auth.decorators import login_required
-from django.shortcuts import render
+from views.index import index
 
 
+"""
+View calling login page.
+"""
 class CustomLoginView(LoginView):
     authentication_form = CustomAuthenticationForm
 
 
-@login_required
-def index(request):
-    return render(request, 'index.html')
+"""
+View calling the home page.
+"""
+index
+
+
