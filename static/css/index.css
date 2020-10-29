@@ -1,0 +1,160 @@
+body {
+    background-color: white;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.topnav {
+    height: 5vh;
+    overflow: hidden;
+    background-color: #333;
+    color: white;
+    line-height: 5vh;
+    font-weight: 500;
+    font-size: 2vh;
+}
+
+.topnav-right a{
+    color: #f2f2f2;
+    text-decoration: none;
+    text-align: center;
+}
+
+.topnav div.powitanie {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    margin-left: 5vw;
+    text-decoration: none;
+    text-align: center;
+}
+
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+a.stretched-link {
+    border:0px;
+}
+
+.topnav-right {
+    height: 100%;
+    float: right;
+    margin-right: 5vw;
+    display: flex;
+}
+
+.button {
+    margin: 0;
+    padding: 0;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 2vw;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+div.level1 {
+    margin: auto;
+    margin-top: 4vh;
+    height: 25vh;
+    width: 90vw;
+}
+
+div.level2 {
+    margin: auto;
+    margin-top: 2vh;
+    height: 25vh;
+    width: 90vw;
+}
+
+div.level3 {
+    margin: auto;
+    margin-top: 2vh;
+    height: 25vh;
+    width: 90vw;
+}
+
+.button1 {
+    width: 33%;
+    height: 25vh;
+    background-color: #2A7B84;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    margin-right: 0.5%;
+}
+
+.button4 {
+    width: 33%;
+    height: 25vh;
+    background-color: #2A7B84;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.button2 {
+    width: 49.75%;
+    height: 25vh;
+    background-color: #A87950;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    margin-right: 0.5%;
+}
+
+.button5 {
+    width: 49.75%;
+    height: 25vh;
+    background-color: #A87950;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.button3 {
+    width: 49.75%;
+    height: 25vh;
+    background-color: #31B966;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    margin-right: 0.5%;
+}
+
+.button6 {
+    width: 49.75%;
+    height: 25vh;
+    background-color: #31B966;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.button1:hover {
+    background-color: #044951;
+}
+
+.button4:hover {
+    background-color: #044951;
+}
+
+.button2:hover {
+    background-color: #6F390B;
+}
+
+.button5:hover {
+    background-color: #6F390B;
+}
+
+.button3:hover {
+    background-color: #067B34;
+}
+
+.button6:hover {
+    background-color: #067B34;
+}

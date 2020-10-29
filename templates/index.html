@@ -1,0 +1,34 @@
+{% extends 'main_template.html' %}
+
+{% load static %}
+
+{% block css %} <link rel="stylesheet" type="text/css" href="{% static '/css/index.css' %}"> {% endblock %}
+
+{% block title %} Strona Główna - Naliczenia {% endblock %}
+
+{% block body %}
+
+<div class="topnav">
+    <div class="powitanie">
+        Witaj, {{user.username}}! :)
+    </div>
+    <div class="topnav-right">
+        <a href="{% url 'logout' %}">
+            WYLOGUJ
+        </a>
+    </div>
+</div>
+
+<div class="level1">
+    <a href="/naliczenia/"><button class="button button1">NALICZENIA</button></a><a href="/wspolnoty/"><button class="button button1">WSPÓLNOTY</button></a><a href="/wlasciciele/"><button class="button button4">WŁAŚCICIELE</button></a>
+</div>
+
+<div class="level2">
+    <a href="/nowy_wlasciciel/"><button class="button button2">DODAJ WŁAŚCICIELA</button></a><a href="/nowa_wspolnota/"><button class="button button5">DODAJ WSPÓLNOTĘ</button></a>
+</div>
+
+<div class="level3">
+    <a href="/nowe_naliczenie_wspolnota/"><button class="button button3">STWÓRZ<br>NALICZENIE WSPÓLNOTY</button></a><a href="/nowe_naliczenie_wlasciciela/"><button class="button button6">STWÓRZ<br>NALICZENIE WŁAŚCICIELA</button></a>
+</div>
+
+{% endblock %}
