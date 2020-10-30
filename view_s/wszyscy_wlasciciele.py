@@ -1,11 +1,11 @@
 from datetime import datetime
 from django.contrib.auth.decorators import login_required
-from create_pdf_documents.models import Mieszkaniec
+from create_pdf_documents.models import Mieszkaniec, Wspolnota
 from django.shortcuts import render, redirect
 
 
 @login_required
-def wlasciciele(request):
+def wszyscy_wlasciciele(request, my_id):
     date = datetime.today().strftime("%Y-%m-%d")
     date2 = datetime.today()
     day, month, year = date2.day, date2.month, date2.year
@@ -26,16 +26,14 @@ def wlasciciele(request):
         year_do = year
     form = SortowanieForm(request.POST or None)
     form2 = WyszukajForm(request.POST or None)
-    form3 = WyborForm(request.POST or None)
     sort = form['parametry_sortowania'].value()
     szukaj = form2['wyszukaj'].value()
-    wybor = form3['wybor_wspolnoty'].value()
-    lenght = 'c'
+    adres = f'/nowy_wlasciciel/{my_id}/wszyscy/'
     if form.is_valid():
-        return redirect(f'/wlasciciele/order/{sort}')
+        return redirect(f'/wlasciciele/select/{my_id}/order/{sort}')
     if form2.is_valid():
-        return redirect(f'/wlasciciele/filter/{szukaj}')
-    if form3.is_valid():
-        return redirect(f'/wlasciciele/select/{wybor}')
-    wszyscy = Mieszkaniec.objects.all().order_by('wspolnota__wspolnota', 'adres_numer_domu', 'adres_numer_mieszkania', 'nazwisko', 'imie').filter(dane_od__lte=f'{year_od}-{month_od}-{day}', dane_do__gte=f'{year_do}-{month_do}-{day}')
-    return render(request, 'wlasciciele.html', {'all': wszyscy, 'form': form, 'form2': form2, 'form3': form3, 'date': date, 'lenght': lenght})
+        return redirect(f'/wlasciciele/select/{my_id}/filter/{szukaj}')
+    wszyscy = Mieszkaniec.objects.all().filter(wspolnota=my_id).order_by('adres_numer_mieszkania', 'nazwisko', 'imie').filter(dane_od__lte=f'{year_od}-{month_od}-{day}', dane_do__gte=f'{year_do}-{month_do}-{day}')
+    wspolnota = Wspolnota.objects.get(id=my_id)
+    wszyscy_historia = Mieszkaniec.objects.all().filter(wspolnota=my_id).order_by('adres_numer_mieszkania', 'nazwisko', 'imie')
+    return render(request, 'wszyscy_wlasciciele.html', {'all': wszyscy, 'form': form, 'form2': form2, 'date': date, 'wspolnota': wspolnota, 'wszyscy_historia': wszyscy_historia, 'my_id': my_id, 'adres': adres})

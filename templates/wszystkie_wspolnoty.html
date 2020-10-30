@@ -1,0 +1,75 @@
+{% extends 'data_table_template.html' %}
+
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static '/css/wszystkie_wspolnoty.css' %}">
+{% endblock %}
+
+{% block title %}
+    Wspólnoty
+{% endblock %}
+
+{% block body %}
+    <div class="top">
+        <h4>WSPÓLNOTY</h4>
+    </div>
+
+    <div style="overflow-x:scroll; overflow-y: scroll; padding: 0px 0px 10px 10px; margin: 0px 10px 0px 0px; max-height: 73vh;">
+        <table>
+            <tr style="position:sticky; top:0; z-index:2;">
+              <th style="min-width:160px;">WSPÓLNOTA</th>
+              <th style="min-width:20px"></th>
+              <th style="min-width:260px">KONTO EKSPLOATACYJNE</th>
+              <th style="min-width:260px">KONTO REMONTOWE</th>
+              <th style="min-width:160px">ADRES</th>
+              <th style="min-width:140px">MIASTO</th>
+              <th style="min-width:110px">AKT.OD</th>
+              <th style="min-width:110px">AKT.DO</th>
+              <th style="min-width:150px">AKCJA</th>
+              <th style="min-width:20px"></th>
+              <th style="min-width:160px;">WSPÓLNOTA</th>
+            </tr>
+          {% for i in all%}
+            <tr>
+              <td><a href="/wspolnota/{{i.id}}/">{{i.wspolnota}}</a></td>
+              <td>
+                  {% if i.aktywny_do|date:'Y-m-d' > date %}
+                    <img src="/static/kropka_zielona.png" style="max-width:15px" alt="zielona">
+                  {% else %}
+                    <img src="/static/kropka_czerwona.png" style="max-width:15px" alt="czerwona">
+                  {% endif %}
+              </td>
+              <td>{{i.konto_eksploatacyjne}}</td>
+              <td>{{i.konto_remontowe}}</td>
+              <td>{{i.adres_ulica}} {{i.adres_numer_domu}}</td>
+              <td>{{i.miasto}}</td>
+              <td>{{i.aktywny_od|date:'Y-m-d'}}</td>
+              <td>{{i.aktywny_do|date:'Y-m-d'}}</td>
+              <td><a href="/edytuj_wspolnote/{{i.id}}/"><i class="fa fa-edit" title="EDYTUJ"></i></a>    <a href="/usun_wspolnote/{{i.id}}/"><i class="fa fa-trash" title="USUŃ"></i></a>     <a href="/naliczenia/wspolnota/select/{{i.id}}/"><i class="fa fa-folder" title="NALICZENIA WSPÓLNOTY"></i></a>     <a href="/naliczenia/wlascicieli/select/{{i.id}}/"><i class="fa fa-file" title="NALICZENIA WŁAŚCICIELI"></i></a></td>
+              <td>
+                  {% if i.aktywny_do|date:'Y-m-d' > date %}
+                    <img src="/static/kropka_zielona.png" style="max-width:15px" alt="zielona">
+                  {% else %}
+                    <img src="/static/kropka_czerwona.png" style="max-width:15px" alt="czerwona">
+                  {% endif %}
+              </td>
+                <td><a href="/wspolnota/{{i.id}}/">{{i.wspolnota}}</a></td>
+            </tr>
+          {%endfor%}
+        </table>
+    </div>
+
+
+    <div class="filter">
+       <div class="home">
+            <a href="/index/"><i class="fa fa-home"><span class="tooltiptext">Strona Główna</span></i></a>
+       </div>
+       <div class="add">
+           <a href="/nowa_wspolnota/"><i class="fa fa-plus-circle"><span class="tooltiptext">Dodaj Wspólnotę</span></i></a>
+       </div>
+    </div>
+
+{% endblock %}
+
+

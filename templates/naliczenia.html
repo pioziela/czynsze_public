@@ -1,0 +1,20 @@
+{% extends 'main_template.html' %}
+
+{% load static %}
+
+{% block css %} <link rel="stylesheet" type="text/css" href="{% static '/css/naliczenia.css' %}"> {% endblock %}
+
+{% block title %}
+    Naliczenia
+{% endblock %}
+
+{% block body %}
+    <div class="level1">
+        <a href="/index/"><button class="button button1">STRONA GŁÓWNA</button></a>
+    </div>
+
+    <div class="level2">
+        <a href="/naliczenia_wspolnot/"><button class="button button2">NALICZENIA WSPÓLNOT</button></a><a href="/naliczenia_mieszkaniec/"><button class="button button5">NALICZENIA WŁAŚCICIELI</button></a>
+    </div>
+{% endblock %}>
+
