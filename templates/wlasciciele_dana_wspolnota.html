@@ -1,0 +1,4 @@
+<option value="">---------</option>
+{% for wlasciciel in mieszkaniec %}
+<option value="{{ wlasciciel.pk }}">{{ wlasciciel.nazwisko }} {{wlasciciel.imie}} ({{wlasciciel.adres_ulica}} {{wlasciciel.adres_numer_domu}}/{{wlasciciel.adres_numer_mieszkania}})   dane od: {{wlasciciel.dane_od|date:'Y-m-d'}}</option>
+{% endfor %}

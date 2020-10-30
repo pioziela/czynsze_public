@@ -3,7 +3,7 @@
 {% load static %}
 
 {% block css %}
-    <link rel="stylesheet" type="text/css" href="{% static '/css/naliczenia_wlasciciel_formularz.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/css/naliczenie_wlasciciel_formularz.css' %}">
 {% endblock %}
 
 {% block title %}
@@ -44,9 +44,6 @@
         <button type="submit" class="btn btn-primary">Zapisz</button>
     </form>
 
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript" src="{% static '/js/naliczenia_wlasciciel_formularz.js' %}"></script>
 {% endblock %}
-
-{% block script %}
-    <script type="text/javascript" src="{% static '/ja/naliczenia_wlasciciel_formularz.js' %}"></script>
-{% endblock %}
-
