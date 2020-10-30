@@ -1,0 +1,52 @@
+{% extends 'formularz_template.html' %}
+
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static '/css/naliczenia_wlasciciel_formularz.css' %}">
+{% endblock %}
+
+{% block title %}
+    {% if new == 0 %}
+        Dodawanie nowego naliczenia właściciela
+    {% elif new == 1 %}
+        Edytuj naliczenie właściciela: {{naliczenie.wlasciciel}}
+    {% elif new == 2 %}
+        Kopiuj naliczenie właściciela: {{naliczenie.wlasciciel}}
+    {% endif %}
+{% endblock %}
+
+{% block body %}
+
+    <div class="menu">
+        <a href="/naliczenia_mieszkaniec/"><i class="fa fa-file"><span class="tooltiptext">Naliczenia Właścicieli</span></i></a>
+        <a href="/naliczenia_wspolnot/"><i class="fa fa-folder"><span class="tooltiptext">Naliczenia Wspólnot</span></i></a>
+        <a href="/index/"><i class="fa fa-home"><span class="tooltiptext">Strona Główna</span></i></a>
+    </div>
+
+    <div class="card">
+      <div class="card-body">
+        {% if new == 0 %}
+            STWÓRZ
+        {% elif new == 1 %}
+            EDYTUJ
+        {% elif new == 2 %}
+            KOPIUJ
+        {% endif %}
+        NALICZENIE WŁAŚCICIELA
+      </div>
+    </div>
+
+    <form method="post" id="naliczenieForm" data-wspolnoty-url="{% url 'ajax_load_wspolnoty'%}">
+        {% csrf_token %}
+        {% load bootstrap %}
+        {{ form|bootstrap }}
+        <button type="submit" class="btn btn-primary">Zapisz</button>
+    </form>
+
+{% endblock %}
+
+{% block script %}
+    <script type="text/javascript" src="{% static '/ja/naliczenia_wlasciciel_formularz.js' %}"></script>
+{% endblock %}
+

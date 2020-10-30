@@ -1,0 +1,40 @@
+{% extends 'formularz_template.html' %}
+
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static '/css/wspolnota_formularz.css' %}">
+{% endblock %}
+
+{% block title %}
+    {% if association == 0 %}
+        Dodawanie nowej wspólnoty
+    {% elif association == 1 %}
+        Edytuj wspólnotę: {{wspolnota}}
+    {% endif %}
+{% endblock %}
+
+{% block body %}
+    <div class="menu">
+        <a href="/wspolnoty/"><i class="fa fa-building"><span class="tooltiptext">Wspólnoty</span></i></a>
+        <a href="/index/"><i class="fa fa-home"><span class="tooltiptext">Strona Główna</span></i></a>
+    </div>
+
+    <div class="card">
+      <div class="card-body">
+        {% if association == 0 %}
+            STWÓRZ
+        {% elif association == 1 %}
+            EDYTUJ
+        {% endif %}
+          WSPÓLNOTĘ
+      </div>
+    </div>
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% load bootstrap %}
+        {{ form|bootstrap }}
+        <button type="submit" class="btn btn-primary">Zapisz</button>
+    </form>
+{% endblock %}

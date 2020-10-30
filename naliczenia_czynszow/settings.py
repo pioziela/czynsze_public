@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'create_pdf_documents',
     'crispy_forms',
     'bootstrapform',
+    'view_s',
 ]
 
 MIDDLEWARE = [

@@ -1,0 +1,45 @@
+{% extends 'formularz_template.html' %}
+
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static '/css/naliczenie_wspolnota_formularz.css' %}">
+{% endblock %}
+
+{% block title %}
+    {% if new == 0 %}
+        Dodawanie nowego naliczenia wspólnoty
+    {% elif new == 1 %}
+        Edytowanie naliczenia wspólnoty: {{naliczenie.wspolnota}}
+    {% elif new == 2 %}
+        Kopiowanie naliczenia wspólnoty: {{naliczenie.wspolnota}}
+    {% endif %}
+{% endblock %}
+
+{% block body %}
+    <div class="menu">
+        <a href="/naliczenia_wspolnot/"><i class="fa fa-folder"><span class="tooltiptext">Naliczenia Wspólnot</span></i></a>
+        <a href="/naliczenia_mieszkaniec/"><i class="fa fa-file"><span class="tooltiptext">Naliczenia Właścicieli</span></i></a>
+        <a href="/index/"><i class="fa fa-home"><span class="tooltiptext">Strona Główna</span></i></a>
+    </div>
+
+    <div class="card">
+      <div class="card-body">
+        {% if new == 0 %}
+            STWÓRZ
+        {% elif new == 1 %}
+            EDYTUJ
+        {% elif new == 2 %}
+            KOPIUJ
+        {% endif %}
+          NALICZENIE WSPÓLNOTY
+      </div>
+    </div>
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% load bootstrap %}
+        {{ form|bootstrap }}
+        <button type="submit" class="btn btn-primary">Zapisz</button>
+    </form>
+{% endblock %}

@@ -91,7 +91,7 @@ class Naliczenie_jeden_mieszkaniecForm(ModelForm):
 
 class AuthenticationForm(forms.Form):
     """
-    Base class for authenticating users. Extend this to get a form that accepts
+    Base class for authenticating users. Extend this to get a form_s that accepts
     username/password logins.
     """
     username = UsernameField(widget=forms.TextInput(attrs={'autofocus': True}))
@@ -111,7 +111,7 @@ class AuthenticationForm(forms.Form):
     def __init__(self, request=None, *args, **kwargs):
         """
         The 'request' parameter is set for custom auth use by subclasses.
-        The form data comes in via the standard 'data' kwarg.
+        The form_s data comes in via the standard 'data' kwarg.
         """
         self.request = request
         self.user_cache = None
@@ -170,7 +170,7 @@ class UserChangeForm(forms.ModelForm):
         help_text=_(
             'Raw passwords are not stored, so there is no way to see this '
             'user’s password, but you can change the password using '
-            '<a href="{}">this form</a>.'
+            '<a href="{}">this form_s</a>.'
         ),
     )
 
