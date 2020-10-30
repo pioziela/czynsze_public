@@ -1,7 +1,8 @@
 from django.urls import path
 from create_pdf_documents.views import index, nowa_wspolnota, nowy_wlasciciel, nowe_naliczenie_wspolnota,\
     nowe_naliczenie_wlasciciela, load_wspolnoty, wszystkie_wspolnoty, wszyscy_wlasciciele, wlasciciele, \
-    wszystkie_naliczenia_wspolnot, wszystkie_naliczenia_wlascicieli, naliczenia
+    wszystkie_naliczenia_wspolnot, wszystkie_naliczenia_wlascicieli, naliczenia, sortowanie_wlascicieli, \
+    sortowanie_naliczen_wspolnot, sortowanie_naliczen_wlascicieli
 
 urlpatterns = [
     path('index/', index),
@@ -16,4 +17,7 @@ urlpatterns = [
     path('wlasciciele/', wlasciciele),
     path('naliczenia_wspolnot/', wszystkie_naliczenia_wspolnot),
     path('naliczenia_mieszkaniec/', wszystkie_naliczenia_wlascicieli),
+    path('wlasciciele/order/<sorter>/', sortowanie_wlascicieli),
+    path('naliczenia/wspolnoty/order/<sorter>/', sortowanie_naliczen_wspolnot),
+    path('naliczenia/wlascicieli/order/<sorter>/', sortowanie_naliczen_wlascicieli),
 ]

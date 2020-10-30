@@ -96,3 +96,55 @@ class Naliczenie_jeden_mieszkaniec(models.Model):
     dodatkowa_informacja_gora = models.CharField(max_length=300, default='brak', verbose_name='Treść dodatkowej informacji do umieszczenia w dokumencie na górze (w przypadku jej braku pozostawić "brak"):')
     dodatkowa_informacja_dol = models.CharField(max_length=300, default='brak', verbose_name='Treść dodatkowej informacji do umieszczenia w dokumencie na dole (w przypadku jej braku pozostawić "brak"):')
     dodatkowa_informacja_dol_2 = models.CharField(max_length=300, default='brak', verbose_name='Treść dodatkowej informacji do umieszczenia w dokumencie na dole w drugiej linii (w przypadku jej braku pozostawić "brak"):')
+
+
+class Sortowanie(models.Model):
+    parametry = [
+        ('imie', 'imię'),
+        ('nazwisko', 'nazwisko'),
+        ('wspolnota', 'wspólnota'),
+        ('numer_mieszkania', 'numer mieszkania'),
+        ('miasto', 'miasto'),
+        ('powierzchnia_mieszkania', 'powierzchnia mieszkania'),
+        ('zaliczka_CO', 'zaliczka CO'),
+        ('ciepla_woda', 'ciepła woda'),
+        ('zimna_woda', 'zimna woda'),
+        ('scieki', 'ścieki'),
+        ('osoby', 'osoby'),
+    ]
+    parametry_sortowania = models.CharField(max_length=32,choices=parametry, default=parametry[2][0], verbose_name="")
+
+
+class Sortowanie_naliczen_wspolnot(models.Model):
+    parametry_wspolnot = [
+        ('data_utworzenia', 'data utworzenia'),
+        ('data_dokumentu', 'data dokumentu'),
+        ('wspolnota', 'wspólnota'),
+        ('data_obowiazywania_oplat','data obowiązywania opłat'),
+        ('stawka_zaliczka_eksploatacyjna','stawka zaliczka eksploatacyjna'),
+        ('stawka_podgrzanie_wody', 'stawka podgrzanie wody'),
+        ('stawka_zimna_woda', 'stawka zimna woda'),
+        ('stawka_odprowadzenie_sciekow', 'stawka odprowadzenie scieków'),
+        ('stawka_wywoz_nieczystosci', 'stawka wywóz nieczystości'),
+        ('stawka_winda', 'stawka winda'),
+        ('stawka_fundusz_remontowy', 'stawka fundusz remontowy'),
+    ]
+    parametry_sortowania_wspolnot = models.CharField(max_length=300,choices=parametry_wspolnot, default=parametry_wspolnot[0][0], verbose_name="")
+
+
+class Sortowanie_naliczen_wlascicieli(models.Model):
+    parametry_wlascicieli = [
+        ('data_utworzenia', 'data utworzenia'),
+        ('data_dokumentu', 'data dokumentu'),
+        ('wspolnota', 'wspólnota'),
+        ('wlasciciel','właściciel'),
+        ('data_obowiazywania_oplat','data obowiązywania opłat'),
+        ('stawka_zaliczka_eksploatacyjna','stawka zaliczka eksploatacyjna'),
+        ('stawka_podgrzanie_wody', 'stawka podgrzanie wody'),
+        ('stawka_zimna_woda', 'stawka zimna woda'),
+        ('stawka_odprowadzenie_sciekow', 'stawka odprowadzenie ściekow'),
+        ('stawka_wywoz_nieczystosci', 'stawka wywóz nieczystości'),
+        ('stawka_winda', 'stawka winda'),
+        ('stawka_fundusz_remontowy', 'stawka fundusz remontowy'),
+    ]
+    parametry_sortowania_wlascicieli = models.CharField(max_length=300,choices=parametry_wlascicieli, default=parametry_wlascicieli[0][0], verbose_name="")

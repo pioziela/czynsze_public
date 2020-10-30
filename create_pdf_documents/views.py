@@ -12,6 +12,9 @@ from view_s.wszyscy_wlasciciele import wszyscy_wlasciciele
 from view_s.wszystkie_naliczenia_wlascicieli import wszystkie_naliczenia_wlascicieli
 from view_s.wszystkie_naliczenia_wspolnot import wszystkie_naliczenia_wspolnot
 from view_s.naliczenia import naliczenia
+from view_s.sorting.sortowanie_naliczen_wlascicieli import sortowanie_naliczen_wlascicieli
+from view_s.sorting.sortowanie_naliczen_wspolnot import sortowanie_naliczen_wspolnot
+from view_s.sorting.sortowanie_wlascicieli import sortowanie_wlascicieli
 
 
 """
@@ -48,3 +51,11 @@ wlasciciele
 wszyscy_wlasciciele
 wszystkie_naliczenia_wspolnot
 wszystkie_naliczenia_wlascicieli
+
+
+"""
+Basic sorting views
+"""
+sortowanie_naliczen_wlascicieli
+sortowanie_naliczen_wspolnot
+sortowanie_wlascicieli
