@@ -15,6 +15,10 @@ from view_s.naliczenia import naliczenia
 from view_s.sorting.sortowanie_naliczen_wlascicieli import sortowanie_naliczen_wlascicieli
 from view_s.sorting.sortowanie_naliczen_wspolnot import sortowanie_naliczen_wspolnot
 from view_s.sorting.sortowanie_wlascicieli import sortowanie_wlascicieli
+from view_s.search.wyszukiwanie import wyszukiwanie
+from view_s.selection.wybor_wlascicicieli_wspolnoty import wybor_wlascicicieli_wspolnoty
+from view_s.selection.wybor_naliczen_wspolnot import wybor_naliczen_wspolnot
+from view_s.selection.wybor_naliczen_wlascicieli import wybor_naliczen_wlascicieli
 
 
 """
@@ -59,3 +63,17 @@ Basic sorting views
 sortowanie_naliczen_wlascicieli
 sortowanie_naliczen_wspolnot
 sortowanie_wlascicieli
+
+
+"""
+Basic searching view
+"""
+wyszukiwanie
+
+
+"""
+Basic selection views
+"""
+wybor_wlascicicieli_wspolnoty
+wybor_naliczen_wspolnot
+wybor_naliczen_wlascicieli

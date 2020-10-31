@@ -1,13 +1,13 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render
 from create_pdf_documents.models import Naliczenie_cala_wspolnota
-from create_pdf_documents.forms import Sortowanie_naliczen_wspolnotForm
+from create_pdf_documents.forms import Sortowanie_naliczen_wspolnotForm, WyborForm
 
 
 @login_required
 def wszystkie_naliczenia_wspolnot(request):
     form = Sortowanie_naliczen_wspolnotForm(request.POST or None)
-    form2= WyborForm(request.POST or None)
+    form2 = WyborForm(request.POST or None)
     sort = form['parametry_sortowania_wspolnot'].value()
     wybor = form2['wybor_wspolnoty'].value()
     if form.is_valid():

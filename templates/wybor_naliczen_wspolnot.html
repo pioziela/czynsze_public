@@ -1,0 +1,90 @@
+{% extends 'data_table_template.html' %}
+
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static '/css/wybor_naliczen_wspolnot.css' %}">
+{% endblock %}
+
+{% block title %}
+    Naliczenia Wspólnoty: {{wspolnota}}
+{% endblock %}
+
+{% block body %}
+
+    <div class="top">
+        <h4>NALICZENIA WSPÓLNOTY: {{wspolnota}}</h4>
+    </div>
+
+    <div style="overflow-x:scroll; overflow-y: scroll; padding: 0px 0px 10px 10px; margin: 0px 10px 0px 0px; max-height: 73vh;">
+        <table>
+            <tr style="position:sticky; top:0; z-index:2;">
+                <th style="min-width:130px;">WSPÓLNOTA</th>
+                <th style="min-width:130px">UTWORZENIE DOKUMENTU</th>
+                <th style="min-width:130px">DATA WYSTAWIENIA DOKUMENTU</th>
+                <th style="min-width:130px">DATA POCZĄTKOWA OPŁAT</th>
+                <th style="min-width:130px">DATA KOŃCOWA OPŁAT</th>
+                <th style="min-width:140px">ZMIANIE ULEGAJĄ</th>
+                <th style="min-width:90px">STAWKA EKS.</th>
+                <th style="min-width:90px">STAWKA C.O.</th>
+                <th style="min-width:90px">STAWKA CW.</th>
+                <th style="min-width:90px">STAWKA ZW.</th>
+                <th style="min-width:90px">STAWKA ŚCIEKI</th>
+                <th style="min-width:130px">STAWKA M. POST/KOM</th>
+                <th style="min-width:90px">STAWKA ŚMIECI</th>
+                <th style="min-width:90px">STAWKA WINDA</th>
+                <th style="min-width:90px">STAWKA FR.</th>
+                <th style="min-width:160px">AKCJA</th>
+                <th style="min-width:130px;">WSPÓLNOTA</th>
+            </tr>
+        {% for i in wybrane%}
+            <tr>
+                <td>{{i.wspolnota}}</td>
+                <td>{{i.data_utworzenia|date:'Y-m-d'}}</td>
+                <td>{{i.data_dokumentu|date:'Y-m-d'}}</td>
+                <td>{{i.data_obowiazywania_oplat|date:'Y-m-d'}}</td>
+                <td>{{i.oplaty_do|date:'Y-m-d'}}</td>
+                <td>{{i.zmianie_ulegaja_oplaty_za}}</td>
+                <td>{{i.stawka_zaliczka_eksploatacyjna|floatformat:2}} zł</td>
+                <td>{{i.stawka_CO_miernik|floatformat:2}} zł</td>
+                <td>{{i.stawka_podgrzanie_wody|floatformat:2}} zł</td>
+                <td>{{i.stawka_zimna_woda|floatformat:2}} zł</td>
+                <td>{{i.stawka_odprowadzenie_sciekow|floatformat:2}} zł</td>
+                <td>{{i.stawka_miejsce_postojowe_komorka|floatformat:2}} zł</td>
+                <td>{{i.stawka_wywoz_nieczystosci|floatformat:2}} zł</td>
+                <td>{{i.stawka_winda|floatformat:2}} zł</td>
+                <td>{{i.stawka_fundusz_remontowy|floatformat:2}} zł</td>
+                <td><a href="/edytuj_naliczenie_wspolnoty/{{i.id}}/{{wybor}}/"><i class="fa fa-edit" title="EDYTUJ"></i></a>    <a href="/usun_naliczenie_wspolnoty/{{i.id}}/{{wybor}}/"><i class="fa fa-trash" title="USUŃ"></i></a>     <a href="/kopiuj_naliczenie_wspolnoty/{{i.id}}/{{wybor}}"><i class="fa fa-copy" title="KOPIUJ"></i></a>     <a href="/naliczenia_wspolnot/pdf/{{i.id}}/"><i class="fa fa-download" title="POBIERZ"></i></a></td>
+                <td>{{i.wspolnota}}</td>
+            </tr>
+        {%endfor%}
+        </table>
+    </div>
+
+    <div class="filter">
+        <div class="home">
+            <a href="/index/"><i class="fa fa-home"><span class="tooltiptext">Strona Główna</span></i></a>
+        </div>
+
+        <form method="post" enctype="multipart/form-data">
+            <fieldset style="width:24vw;">
+                <legend>Wybierz</legend>
+                {% csrf_token %}
+                {{ form2 }}
+                <button type="submit"><i class="fa fa-angle-double-right"></i></button>
+            </fieldset>
+        </form>
+
+        <form method="post" enctype="multipart/form-data">
+            <fieldset style="width:29vw;">
+                <legend>Sortowanie</legend>
+                {% csrf_token %}
+                {{ form }}
+                <button type="submit"><i class="fa fa-angle-double-right"></i></button>
+            </fieldset>
+        </form>
+
+        <div class="add"> <a href="/nowe_naliczenie_wspolnota/{{wybor}}/"><i class="fa fa-plus-circle"><span class="tooltiptext">Dodaj naliczenie wspólnoty</span></i></a></div>
+        <div class="add"> <a href="/naliczenia/"><i class="fa fa-folder"><span class="tooltiptext">Naliczenia powrót</span></i></a></div>
+    </div>
+{% endblock %}

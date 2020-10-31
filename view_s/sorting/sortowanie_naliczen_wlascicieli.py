@@ -1,13 +1,13 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render
 from create_pdf_documents.models import Naliczenie_jeden_mieszkaniec
-from create_pdf_documents.forms import Sortowanie_naliczen_wlascicieliForm
+from create_pdf_documents.forms import Sortowanie_naliczen_wlascicieliForm, WyborForm
 
 
 @login_required
 def sortowanie_naliczen_wlascicieli(request, sorter):
     form = Sortowanie_naliczen_wlascicieliForm(request.POST or None)
-    form2= WyborForm(request.POST or None)
+    form2 = WyborForm(request.POST or None)
     sort = form['parametry_sortowania_wlascicieli'].value()
     wybor = form2['wybor_wspolnoty'].value()
     adres = f'/nowe_naliczenie_wlasciciela/'

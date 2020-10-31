@@ -1,7 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render
 from create_pdf_documents.models import Naliczenie_jeden_mieszkaniec
-from create_pdf_documents.forms import Sortowanie_naliczen_wlascicieliForm
+from create_pdf_documents.forms import Sortowanie_naliczen_wlascicieliForm, WyborForm
 
 
 @login_required

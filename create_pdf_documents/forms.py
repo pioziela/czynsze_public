@@ -8,7 +8,8 @@ from django.utils.text import capfirst
 from django.utils.translation import gettext_lazy as _
 from datetime import datetime
 from .models import Mieszkaniec, Wspolnota, Naliczenie_cala_wspolnota, \
-    Naliczenie_jeden_mieszkaniec, Sortowanie, Sortowanie_naliczen_wlascicieli, Sortowanie_naliczen_wspolnot
+    Naliczenie_jeden_mieszkaniec, Sortowanie, Sortowanie_naliczen_wlascicieli, \
+    Sortowanie_naliczen_wspolnot, Wybor, Wyszukaj
 
 UserModel = get_user_model()
 
@@ -105,6 +106,18 @@ class Sortowanie_naliczen_wlascicieliForm(ModelForm):
     class Meta:
         model = Sortowanie_naliczen_wlascicieli
         fields = ['parametry_sortowania_wlascicieli']
+
+
+class WyszukajForm(ModelForm):
+    class Meta:
+        model = Wyszukaj
+        fields = ['wyszukaj']
+
+
+class WyborForm(ModelForm):
+    class Meta:
+        model = Wybor
+        fields = ['wybor_wspolnoty']
 
 
 class AuthenticationForm(forms.Form):

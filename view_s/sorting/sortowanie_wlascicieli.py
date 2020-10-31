@@ -2,7 +2,7 @@ from django.contrib.auth.decorators import login_required
 from datetime import datetime
 from django.shortcuts import redirect, render
 from create_pdf_documents.models import Mieszkaniec
-from create_pdf_documents.forms import SortowanieForm
+from create_pdf_documents.forms import SortowanieForm, WyszukajForm, WyborForm
 
 
 @login_required
@@ -10,12 +10,18 @@ def sortowanie_wlascicieli(request, sorter):
     date = datetime.today().strftime("%Y-%m-%d")
     date2 = datetime.today()
     day, month, year = date2.day, date2.month, date2.year
-    if month > 1 and month < 11:
+    if day == 31:
+        day = 30
+    if month > 1 and month <= 11:
+        if month == 3 and day > 28:
+            day = 28
         month_od = month + 1
         year_od = year
         month_do = month - 1
         year_do = year
     elif month == 1:
+        if day > 28:
+            day = 28
         month_od = month + 1
         year_od = year
         month_do = 12

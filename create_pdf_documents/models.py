@@ -148,3 +148,11 @@ class Sortowanie_naliczen_wlascicieli(models.Model):
         ('stawka_fundusz_remontowy', 'stawka fundusz remontowy'),
     ]
     parametry_sortowania_wlascicieli = models.CharField(max_length=300,choices=parametry_wlascicieli, default=parametry_wlascicieli[0][0], verbose_name="")
+
+
+class Wyszukaj(models.Model):
+    wyszukaj = models.CharField(max_length=32, default=None, verbose_name='')
+
+
+class Wybor(models.Model):
+    wybor_wspolnoty = models.ForeignKey(Wspolnota, on_delete=models.SET_NULL, null=True, verbose_name='')
