@@ -29,7 +29,19 @@ from view_s.deleting.usun_wspolnote import usun_wspolnote
 from view_s.deleting.usun_wlasciciela import usun_wlasciciela
 from view_s.history.historia_wlasciciela import historia_wlasciciela
 from view_s.history.historia_wszyscy_wlasciciele import historia_wszyscy_wlasciciele
-
+from view_s.edit.edytuj_wlasciciela import edytuj_wlasciciela
+from view_s.edit.edytuj_wlasciciela_historia import edytuj_wlasciciela_historia
+from view_s.edit.edytuj_wlasciciela_historia_wszyscy import edytuj_wlasciciela_historia_wszyscy
+from view_s.edit.edytuj_naliczenie_wlasciciela import edytuj_naliczenie_wlasciciela
+from view_s.edit.edytuj_naliczenie_wlasciciela_po_wyborze import edytuj_naliczenie_wlasciciela_po_wyborze
+from view_s.edit.edytuj_wspolnote import edytuj_wspolnote
+from view_s.edit.edytuj_naliczenie_wspolnoty_po_wyborze import edytuj_naliczenie_wspolnoty_po_wyborze
+from view_s.edit.edytuj_naliczenie_wspolnoty import edytuj_naliczenie_wspolnoty
+from view_s.edit.edytuj_wlasciciela_szukanie_po_wyborze import edytuj_wlasciciela_szukanie_po_wyborze
+from view_s.edit.edytuj_wlasciciela_sortowanie_po_wyborze import edytuj_wlasciciela_sortowanie_po_wyborze
+from view_s.edit.edytuj_wlasciciela_po_wyborze import edytuj_wlasciciela_po_wyborze
+from view_s.edit.edytuj_wlasciciela_po_sortowaniu import edytuj_wlasciciela_po_sortowaniu
+from view_s.edit.edytuj_wlasciciela_po_szukaniu import edytuj_wlasciciela_po_szukaniu
 
 """
 View calling login page.
@@ -107,3 +119,21 @@ Associations and inhabitants history
 """
 historia_wlasciciela
 historia_wszyscy_wlasciciele
+
+
+"""
+Edit views inhabitants, associations and documents
+"""
+edytuj_wlasciciela
+edytuj_wlasciciela_historia
+edytuj_wlasciciela_historia_wszyscy
+edytuj_naliczenie_wlasciciela
+edytuj_naliczenie_wlasciciela_po_wyborze
+edytuj_wspolnote
+edytuj_naliczenie_wspolnoty_po_wyborze
+edytuj_naliczenie_wspolnoty
+edytuj_wlasciciela_szukanie_po_wyborze
+edytuj_wlasciciela_sortowanie_po_wyborze
+edytuj_wlasciciela_po_wyborze
+edytuj_wlasciciela_po_sortowaniu
+edytuj_wlasciciela_po_szukaniu

@@ -6,7 +6,11 @@ from create_pdf_documents.views import index, nowa_wspolnota, nowy_wlasciciel, n
     wybor_naliczen_wspolnot, wybor_naliczen_wlascicieli, wyszukiwanie_wlascicieli_po_wyborze, \
     sortowanie_naliczen_wspolnot_po_wyborze, sortowanie_naliczen_wlascicieli_po_wyborze, sortowanie_wlascicieli_po_wyborze, \
     usun_naliczenie_wspolnoty, usun_naliczenie_wlasciciela, usun_wspolnote, usun_wlasciciela, \
-    historia_wlasciciela, historia_wszyscy_wlasciciele
+    historia_wlasciciela, historia_wszyscy_wlasciciele, edytuj_wlasciciela, edytuj_wlasciciela_historia,\
+    edytuj_wlasciciela_historia_wszyscy, edytuj_naliczenie_wlasciciela, edytuj_naliczenie_wlasciciela_po_wyborze,\
+    edytuj_wspolnote, edytuj_naliczenie_wspolnoty_po_wyborze, edytuj_naliczenie_wspolnoty, edytuj_wlasciciela_szukanie_po_wyborze,\
+    edytuj_wlasciciela_sortowanie_po_wyborze, edytuj_wlasciciela_po_wyborze, edytuj_wlasciciela_po_sortowaniu,\
+    edytuj_wlasciciela_po_szukaniu
 
 urlpatterns = [
     path('index/', index),
@@ -38,4 +42,17 @@ urlpatterns = [
     path('usun_wlasciciela/<int:my_id>/', usun_wlasciciela),
     path('historia_wlasciciela/<int:my_id>/', historia_wlasciciela),
     path('historia/wspolnota/<int:my_id>/', historia_wszyscy_wlasciciele),
+    path('edytuj_wlasciciela/<int:my_id>/', edytuj_wlasciciela),
+    path('edytuj_wlasciciela/historia/<int:my_id>/', edytuj_wlasciciela_historia),
+    path('edytuj_wlasciciela/wszyscy/historia/<int:my_id>/', edytuj_wlasciciela_historia_wszyscy),
+    path('edytuj_wlasciciela/<int:my_id>/select/<sorter>/', edytuj_wlasciciela_po_sortowaniu),
+    path('edytuj_wlasciciela/<int:my_id>/filter/<szukacz>/', edytuj_wlasciciela_po_szukaniu),
+    path('edytuj_wlasciciela/<int:my_id>/<wybieracz>/<where>/', edytuj_wlasciciela_po_wyborze),
+    path('edytuj_wlasciciela/<int:my_id>/<wybieracz>/<where>/<sorter>/', edytuj_wlasciciela_sortowanie_po_wyborze),
+    path('edytuj_wlasciciela/<int:my_id>/<wybieracz>/select/filter/<szukacz>/', edytuj_wlasciciela_szukanie_po_wyborze),
+    path('edytuj_wspolnote/<int:my_id>/', edytuj_wspolnote),
+    path('edytuj_naliczenie_wspolnoty/<int:my_id>/', edytuj_naliczenie_wspolnoty),
+    path('edytuj_naliczenie_wspolnoty/<int:my_id>/<wybieracz>/', edytuj_naliczenie_wspolnoty_po_wyborze),
+    path('edytuj_naliczenie_wlasciciela/<int:my_id>/', edytuj_naliczenie_wlasciciela),
+    path('edytuj_naliczenie_wlasciciela/<int:my_id>/<wybieracz>/', edytuj_naliczenie_wlasciciela_po_wyborze),
 ]
