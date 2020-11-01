@@ -3,17 +3,17 @@
 {% load static %}
 
 {% block css %}
-    <link rel="stylesheet" type="text/css" href="{% static '/css/wszyscy_wlasciciele.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/css/historia_wszyscy_wlasciciele.css' %}">
 {% endblock %}
 
 {% block title %}
-    Wszyscy właściciele wspólnoty: {{wspolnota}}
+    Historia wspólnoty: {{wspolnota}}
 {% endblock %}
 
 {% block body %}
 
     <div class="top">
-        <h4>WŁAŚCICIELE: {{wspolnota}}</h4>
+        <h4>HISTORIA WŁAŚCICIELI: {{wspolnota}}</h4>
     </div>
 
     <div style="overflow-x:scroll; overflow-y: scroll; padding: 0px 0px 10px 10px; margin: 0px 10px 0px 0px; max-height: 73vh;">
@@ -42,16 +42,16 @@
                 <th style="min-width:130px;">NAZWISKO</th>
                 <th style="min-width:90px">IMIĘ</th>
             </tr>
-        {% for i in all%}
+        {% for i in wszyscy_historia%}
             <tr>
                 <td>{{i.nazwisko}}</td>
                 <td>{{i.imie}}</td>
                 <td>
-                    {% if i.aktywny_do|date:'Y-m-d' > date %}
-                        <img src="/static/kropka_zielona.png" style="max-width:15px" alt="zielona">
-                    {% else %}
-                        <img src="/static/kropka_czerwona.png" style="max-width:15px" alt="czerwona">
-                    {% endif %}
+                {% if i.aktywny_do|date:'Y-m-d' > date %}
+                    <img src="/static/kropka_zielona.png" style="max-width:15px" alt="zielona">
+                {% else %}
+                    <img src="/static/kropka_czerwona.png" style="max-width:15px" alt="czerwona">
+                {% endif %}
                 </td>
                 <td>{{i.wspolnota}}</td>
                 <td>{{i.adres_ulica}} {{i.adres_numer_domu}} / {{i.adres_numer_mieszkania}}</td>
@@ -73,7 +73,7 @@
                 <td>{{i.winda}}</td>
                 <td>{{i.aktywny_od|date:'Y-m-d'}}</td>
                 <td>{{i.aktywny_do|date:'Y-m-d'}}</td>
-                <td><a href="/edytuj_wlasciciela/{{i.id}}/{{my_id}}/wszyscy/"><i class="fa fa-edit" title="EDYTUJ"></i></a>    <a href="/usun_wlasciciela/{{i.id}}/{{my_id}}/wszyscy/"><i class="fa fa-trash" title="USUŃ"></i></a>     <a href="/historia_wlasciciela/{{i.id}}/"><i class="fa fa-history" title="HISTORIA"></i></a>      <a href="/aktualizuj_wlasciciela/{{i.id}}/{{my_id}}/wszyscy/"><i class="fa fa-wrench" title="AKTUALIZUJ"></i></a></td>
+                <td><a href="/edytuj_wlasciciela/wszyscy/historia/{{i.id}}/"><i class="fa fa-edit" title="EDYTUJ"></i></a>    <a href="/usun_wlasciciela/wszyscy/historia/{{i.id}}/"><i class="fa fa-trash" title="USUŃ"></i></a>     <a href="/historia_wlasciciela/{{i.id}}/"><i class="fa fa-history" title="HISTORIA"></i></a>     <a href="/aktualizuj_wlasciciela/wszyscy/historia/{{i.id}}/"><i class="fa fa-wrench" title="AKTUALIZUJ"></i></a></td>
                 <td>{{i.nazwisko}}</td>
                 <td>{{i.imie}}</td>
             </tr>
@@ -85,28 +85,8 @@
         <div class="home">
             <a href="/index/"><i class="fa fa-home"><span class="tooltiptext">Strona Główna</span></i></a>
         </div>
-
-        <form method="post" enctype="multipart/form-data">
-             <fieldset style="width:25vw;">
-                 <legend>Sortowanie</legend>
-                 {% csrf_token %}
-                 {{ form }}
-                 <button type="submit"><i class="fa fa-angle-double-right"></i></button>
-             </fieldset>
-        </form>
-
-        <form method="post" enctype="multipart/form-data">
-            <fieldset style="width:26vw;">
-            <legend>Wyszukaj</legend>
-                {% csrf_token %}
-                {{ form2 }}
-                <button type="submit"><i class="fa fa-angle-double-right"></i></button>
-            </fieldset>
-        </form>
-
-        <div class="add"> <a href={{adres}}><i class="fa fa-user-plus"><span class="tooltiptext">Dodaj właściciela</span></i></a></div>
-        <div class="associat"><a href="/wspolnoty/"><i class="fa fa-building"><span class="tooltiptext">Wspólnoty</span></i></a></div>
-        <div class="associat"><a href="/historia/wspolnota/{{my_id}}/"><i class="fa fa-universal-access"><span class="tooltiptext">Historia właścicieli</span></i></a></div>
+        <div class="associat">
+            <a href="/wspolnota/{{id}}/"><i class="fa fa-building"><span class="tooltiptext">Wspólnota: {{wspolnota}}</span></i></a>
+        </div>
     </div>
-
 {% endblock %}

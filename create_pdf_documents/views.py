@@ -27,6 +27,8 @@ from view_s.deleting.usun_naliczenie_wspolnoty import usun_naliczenie_wspolnoty
 from view_s.deleting.usun_naliczenie_wlasciciela import usun_naliczenie_wlasciciela
 from view_s.deleting.usun_wspolnote import usun_wspolnote
 from view_s.deleting.usun_wlasciciela import usun_wlasciciela
+from view_s.history.historia_wlasciciela import historia_wlasciciela
+from view_s.history.historia_wszyscy_wlasciciele import historia_wszyscy_wlasciciele
 
 
 """
@@ -98,3 +100,10 @@ usun_naliczenie_wspolnoty
 usun_naliczenie_wlasciciela
 usun_wspolnote
 usun_wlasciciela
+
+
+"""
+Associations and inhabitants history
+"""
+historia_wlasciciela
+historia_wszyscy_wlasciciele
