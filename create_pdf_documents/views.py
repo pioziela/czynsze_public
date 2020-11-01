@@ -14,7 +14,11 @@ from view_s.wszystkie_naliczenia_wspolnot import wszystkie_naliczenia_wspolnot
 from view_s.naliczenia import naliczenia
 from view_s.sorting.sortowanie_naliczen_wlascicieli import sortowanie_naliczen_wlascicieli
 from view_s.sorting.sortowanie_naliczen_wspolnot import sortowanie_naliczen_wspolnot
+from view_s.sorting.sortowanie_naliczen_wspolnot_po_wyborze import sortowanie_naliczen_wspolnot_po_wyborze
+from view_s.sorting.sortowanie_naliczen_wlascicieli_po_wyborze import sortowanie_naliczen_wlascicieli_po_wyborze
+from view_s.sorting.sortowanie_wlascicieli_po_wyborze import sortowanie_wlascicieli_po_wyborze
 from view_s.sorting.sortowanie_wlascicieli import sortowanie_wlascicieli
+from view_s.search.wyszukiwanie_wlascicieli_po_wyborze import wyszukiwanie_wlascicieli_po_wyborze
 from view_s.search.wyszukiwanie import wyszukiwanie
 from view_s.selection.wybor_wlascicicieli_wspolnoty import wybor_wlascicicieli_wspolnoty
 from view_s.selection.wybor_naliczen_wspolnot import wybor_naliczen_wspolnot
@@ -58,21 +62,25 @@ wszystkie_naliczenia_wlascicieli
 
 
 """
-Basic sorting views
+Sorting views
 """
 sortowanie_naliczen_wlascicieli
 sortowanie_naliczen_wspolnot
 sortowanie_wlascicieli
+sortowanie_naliczen_wspolnot_po_wyborze
+sortowanie_naliczen_wlascicieli_po_wyborze
+sortowanie_wlascicieli_po_wyborze
 
 
 """
-Basic searching view
+Searching views
 """
 wyszukiwanie
+wyszukiwanie_wlascicieli_po_wyborze
 
 
 """
-Basic selection views
+Selection views
 """
 wybor_wlascicicieli_wspolnoty
 wybor_naliczen_wspolnot

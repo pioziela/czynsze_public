@@ -3,7 +3,8 @@ from create_pdf_documents.views import index, nowa_wspolnota, nowy_wlasciciel, n
     nowe_naliczenie_wlasciciela, load_wspolnoty, wszystkie_wspolnoty, wszyscy_wlasciciele, wlasciciele, \
     wszystkie_naliczenia_wspolnot, wszystkie_naliczenia_wlascicieli, naliczenia, sortowanie_wlascicieli, \
     sortowanie_naliczen_wspolnot, sortowanie_naliczen_wlascicieli, wyszukiwanie, wybor_wlascicicieli_wspolnoty, \
-    wybor_naliczen_wspolnot, wybor_naliczen_wlascicieli
+    wybor_naliczen_wspolnot, wybor_naliczen_wlascicieli, wyszukiwanie_wlascicieli_po_wyborze, \
+    sortowanie_naliczen_wspolnot_po_wyborze, sortowanie_naliczen_wlascicieli_po_wyborze, sortowanie_wlascicieli_po_wyborze
 
 urlpatterns = [
     path('index/', index),
@@ -25,4 +26,8 @@ urlpatterns = [
     path('wlasciciele/select/<wybieracz>/', wybor_wlascicicieli_wspolnoty),
     path('naliczenia/wspolnota/select/<wybieracz>/', wybor_naliczen_wspolnot),
     path('naliczenia/wlascicieli/select/<wybieracz>/', wybor_naliczen_wlascicieli),
+    path('wlasciciele/select/<wybieracz>/filter/<szukacz>', wyszukiwanie_wlascicieli_po_wyborze),
+    path('naliczenia/wspolnoty/select/<wybieracz>/order/<sorter>', sortowanie_naliczen_wspolnot_po_wyborze),
+    path('naliczenia/wlascicieli/select/<wybieracz>/order/<sorter>', sortowanie_naliczen_wlascicieli_po_wyborze),
+    path('wlasciciele/select/<wybieracz>/order/<sorter>', sortowanie_wlascicieli_po_wyborze),
 ]
