@@ -4,7 +4,8 @@ from create_pdf_documents.views import index, nowa_wspolnota, nowy_wlasciciel, n
     wszystkie_naliczenia_wspolnot, wszystkie_naliczenia_wlascicieli, naliczenia, sortowanie_wlascicieli, \
     sortowanie_naliczen_wspolnot, sortowanie_naliczen_wlascicieli, wyszukiwanie, wybor_wlascicicieli_wspolnoty, \
     wybor_naliczen_wspolnot, wybor_naliczen_wlascicieli, wyszukiwanie_wlascicieli_po_wyborze, \
-    sortowanie_naliczen_wspolnot_po_wyborze, sortowanie_naliczen_wlascicieli_po_wyborze, sortowanie_wlascicieli_po_wyborze
+    sortowanie_naliczen_wspolnot_po_wyborze, sortowanie_naliczen_wlascicieli_po_wyborze, sortowanie_wlascicieli_po_wyborze, \
+    usun_naliczenie_wspolnoty, usun_naliczenie_wlasciciela, usun_wspolnote, usun_wlasciciela
 
 urlpatterns = [
     path('index/', index),
@@ -30,4 +31,8 @@ urlpatterns = [
     path('naliczenia/wspolnoty/select/<wybieracz>/order/<sorter>', sortowanie_naliczen_wspolnot_po_wyborze),
     path('naliczenia/wlascicieli/select/<wybieracz>/order/<sorter>', sortowanie_naliczen_wlascicieli_po_wyborze),
     path('wlasciciele/select/<wybieracz>/order/<sorter>', sortowanie_wlascicieli_po_wyborze),
+    path('usun_naliczenie_wspolnoty/<int:my_id>/', usun_naliczenie_wspolnoty),
+    path('usun_naliczenie_wlasciciela/<int:my_id>/', usun_naliczenie_wlasciciela),
+    path('usun_wspolnote/<int:my_id>/', usun_wspolnote),
+    path('usun_wlasciciela/<int:my_id>/', usun_wlasciciela),
 ]

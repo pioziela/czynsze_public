@@ -23,6 +23,10 @@ from view_s.search.wyszukiwanie import wyszukiwanie
 from view_s.selection.wybor_wlascicicieli_wspolnoty import wybor_wlascicicieli_wspolnoty
 from view_s.selection.wybor_naliczen_wspolnot import wybor_naliczen_wspolnot
 from view_s.selection.wybor_naliczen_wlascicieli import wybor_naliczen_wlascicieli
+from view_s.deleting.usun_naliczenie_wspolnoty import usun_naliczenie_wspolnoty
+from view_s.deleting.usun_naliczenie_wlasciciela import usun_naliczenie_wlasciciela
+from view_s.deleting.usun_wspolnote import usun_wspolnote
+from view_s.deleting.usun_wlasciciela import usun_wlasciciela
 
 
 """
@@ -85,3 +89,12 @@ Selection views
 wybor_wlascicicieli_wspolnoty
 wybor_naliczen_wspolnot
 wybor_naliczen_wlascicieli
+
+
+"""
+Deleting association, inhabitant and documents
+"""
+usun_naliczenie_wspolnoty
+usun_naliczenie_wlasciciela
+usun_wspolnote
+usun_wlasciciela
