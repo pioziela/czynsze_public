@@ -10,7 +10,8 @@ from create_pdf_documents.views import index, nowa_wspolnota, nowy_wlasciciel, n
     edytuj_wlasciciela_historia_wszyscy, edytuj_naliczenie_wlasciciela, edytuj_naliczenie_wlasciciela_po_wyborze,\
     edytuj_wspolnote, edytuj_naliczenie_wspolnoty_po_wyborze, edytuj_naliczenie_wspolnoty, edytuj_wlasciciela_szukanie_po_wyborze,\
     edytuj_wlasciciela_sortowanie_po_wyborze, edytuj_wlasciciela_po_wyborze, edytuj_wlasciciela_po_sortowaniu,\
-    edytuj_wlasciciela_po_szukaniu
+    edytuj_wlasciciela_po_szukaniu, kopiuj_naliczenie_wspolnoty, kopiuj_naliczenie_wspolnoty_po_wyborze, \
+    kopiuj_naliczenie_wlasciciela, kopiuj_naliczenie_wlasciciela_po_wyborze
 
 urlpatterns = [
     path('index/', index),
@@ -55,4 +56,8 @@ urlpatterns = [
     path('edytuj_naliczenie_wspolnoty/<int:my_id>/<wybieracz>/', edytuj_naliczenie_wspolnoty_po_wyborze),
     path('edytuj_naliczenie_wlasciciela/<int:my_id>/', edytuj_naliczenie_wlasciciela),
     path('edytuj_naliczenie_wlasciciela/<int:my_id>/<wybieracz>/', edytuj_naliczenie_wlasciciela_po_wyborze),
+    path('kopiuj_naliczenie_wspolnoty/<int:my_id>/', kopiuj_naliczenie_wspolnoty),
+    path('kopiuj_naliczenie_wspolnoty/<int:my_id>/<wybieracz>/', kopiuj_naliczenie_wspolnoty_po_wyborze),
+    path('kopiuj_naliczenie_wlasciciela/<int:my_id>/', kopiuj_naliczenie_wlasciciela),
+    path('kopiuj_naliczenie_wlasciciela/<int:my_id>/<wybieracz>/', kopiuj_naliczenie_wlasciciela_po_wyborze),
 ]

@@ -42,6 +42,10 @@ from view_s.edit.edytuj_wlasciciela_sortowanie_po_wyborze import edytuj_wlascici
 from view_s.edit.edytuj_wlasciciela_po_wyborze import edytuj_wlasciciela_po_wyborze
 from view_s.edit.edytuj_wlasciciela_po_sortowaniu import edytuj_wlasciciela_po_sortowaniu
 from view_s.edit.edytuj_wlasciciela_po_szukaniu import edytuj_wlasciciela_po_szukaniu
+from view_s.copy.kopiuj_naliczenie_wspolnoty import kopiuj_naliczenie_wspolnoty
+from view_s.copy.kopiuj_naliczenie_wspolnoty_po_wyborze import kopiuj_naliczenie_wspolnoty_po_wyborze
+from view_s.copy.kopiuj_naliczenie_wlasciciela import kopiuj_naliczenie_wlasciciela
+from view_s.copy.kopiuj_naliczenie_wlasciciela_po_wyborze import kopiuj_naliczenie_wlasciciela_po_wyborze
 
 """
 View calling login page.
@@ -137,3 +141,12 @@ edytuj_wlasciciela_sortowanie_po_wyborze
 edytuj_wlasciciela_po_wyborze
 edytuj_wlasciciela_po_sortowaniu
 edytuj_wlasciciela_po_szukaniu
+
+
+"""
+Copy views for documents
+"""
+kopiuj_naliczenie_wspolnoty
+kopiuj_naliczenie_wspolnoty_po_wyborze
+kopiuj_naliczenie_wlasciciela
+kopiuj_naliczenie_wlasciciela_po_wyborze
