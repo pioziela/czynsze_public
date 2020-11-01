@@ -11,7 +11,10 @@ from create_pdf_documents.views import index, nowa_wspolnota, nowy_wlasciciel, n
     edytuj_wspolnote, edytuj_naliczenie_wspolnoty_po_wyborze, edytuj_naliczenie_wspolnoty, edytuj_wlasciciela_szukanie_po_wyborze,\
     edytuj_wlasciciela_sortowanie_po_wyborze, edytuj_wlasciciela_po_wyborze, edytuj_wlasciciela_po_sortowaniu,\
     edytuj_wlasciciela_po_szukaniu, kopiuj_naliczenie_wspolnoty, kopiuj_naliczenie_wspolnoty_po_wyborze, \
-    kopiuj_naliczenie_wlasciciela, kopiuj_naliczenie_wlasciciela_po_wyborze
+    kopiuj_naliczenie_wlasciciela, kopiuj_naliczenie_wlasciciela_po_wyborze, nowy_wlasciciel_po_wyborze,\
+    nowy_wlasciciel_sortowanie_po_wyborze, nowe_naliczenie_wlasciciela_po_wyborze_i_sortowaniu,\
+    nowe_naliczenie_wlasciciela_po_wyborze, nowe_naliczenie_wspolnota_po_wyborze_i_sortowaniu,\
+    nowy_wlasciciel_szukanie_po_wyborze, nowe_naliczenie_wspolnota_po_wyborze
 
 urlpatterns = [
     path('index/', index),
@@ -60,4 +63,11 @@ urlpatterns = [
     path('kopiuj_naliczenie_wspolnoty/<int:my_id>/<wybieracz>/', kopiuj_naliczenie_wspolnoty_po_wyborze),
     path('kopiuj_naliczenie_wlasciciela/<int:my_id>/', kopiuj_naliczenie_wlasciciela),
     path('kopiuj_naliczenie_wlasciciela/<int:my_id>/<wybieracz>/', kopiuj_naliczenie_wlasciciela_po_wyborze),
+    path('nowy_wlasciciel/<wybieracz>/<where>/', nowy_wlasciciel_po_wyborze),
+    path('nowy_wlasciciel/<wybieracz>/<where>/<sorter>/', nowy_wlasciciel_sortowanie_po_wyborze),
+    path('nowy_wlasciciel/<wybieracz>/select/filter/<szukacz>/', nowy_wlasciciel_szukanie_po_wyborze),
+    path('nowe_naliczenie_wspolnota/<wybieracz>/', nowe_naliczenie_wspolnota_po_wyborze),
+    path('nowe_naliczenie_wspolnota/<wybieracz>/<sorter>/', nowe_naliczenie_wspolnota_po_wyborze_i_sortowaniu),
+    path('nowe_naliczenie_wlasciciela/<wybieracz>/', nowe_naliczenie_wlasciciela_po_wyborze),
+    path('nowe_naliczenie_wlasciciela/<wybieracz>/<sorter>/', nowe_naliczenie_wlasciciela_po_wyborze_i_sortowaniu),
 ]
