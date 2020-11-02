@@ -20,7 +20,7 @@ from create_pdf_documents.views import index, nowa_wspolnota, nowy_wlasciciel, n
     usun_wlasciciela_po_szukaniu, usun_wlasciciela_po_wyborze, usun_wlasciciela_sortowanie_po_wyborze, usun_wlasciciela_szukanie_po_wyborze,\
     usun_naliczenie_wspolnoty_po_wyborze, usun_naliczenie_wspolnoty_po_wyborze_i_po_sortowaniu, usun_naliczenie_wlasciciela_po_wyborze,\
     usun_naliczenie_wlasciciela_po_wyborze_i_po_sortowaniu, usun_wlasciciela_historia, historia_wlasciciela_po_usun,\
-    usun_wlasciciela_historia_wszyscy
+    usun_wlasciciela_historia_wszyscy, pdf_wspolnota, pdf_mieszkaniec
 
 urlpatterns = [
     path('index/', index),
@@ -95,4 +95,6 @@ urlpatterns = [
     path('usun_wlasciciela/historia/<int:my_id>/', usun_wlasciciela_historia),
     path('historia_wlasciciela/<int:my_id>/<int:numer_mieszkania>/', historia_wlasciciela_po_usun),
     path('usun_wlasciciela/wszyscy/historia/<int:my_id>/', usun_wlasciciela_historia_wszyscy),
+    path('naliczenia_wspolnot/pdf/<int:my_id>/', pdf_wspolnota),
+    path('naliczenia_mieszkaniec/pdf/<int:my_id>/', pdf_mieszkaniec),
 ]

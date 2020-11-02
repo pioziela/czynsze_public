@@ -72,6 +72,8 @@ from view_s.deleting.usun_naliczenie_wlasciciela_po_wyborze_i_po_sortowaniu impo
 from view_s.deleting.usun_wlasciciela_historia import usun_wlasciciela_historia
 from view_s.deleting.historia_wlasciciela_po_usun import historia_wlasciciela_po_usun
 from view_s.deleting.usun_wlasciciela_historia_wszyscy import usun_wlasciciela_historia_wszyscy
+from view_s.pdf.pdf_mieszkaniec import pdf_mieszkaniec
+from view_s.pdf.pdf_wspolnota import pdf_wspolnota
 
 
 """
@@ -218,3 +220,10 @@ usun_naliczenie_wlasciciela_po_wyborze_i_po_sortowaniu
 usun_wlasciciela_historia
 historia_wlasciciela_po_usun
 usun_wlasciciela_historia_wszyscy
+
+
+"""
+Views creating pdf documents
+"""
+pdf_mieszkaniec
+pdf_wspolnota
