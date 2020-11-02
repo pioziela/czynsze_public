@@ -14,7 +14,9 @@ from create_pdf_documents.views import index, nowa_wspolnota, nowy_wlasciciel, n
     kopiuj_naliczenie_wlasciciela, kopiuj_naliczenie_wlasciciela_po_wyborze, nowy_wlasciciel_po_wyborze,\
     nowy_wlasciciel_sortowanie_po_wyborze, nowe_naliczenie_wlasciciela_po_wyborze_i_sortowaniu,\
     nowe_naliczenie_wlasciciela_po_wyborze, nowe_naliczenie_wspolnota_po_wyborze_i_sortowaniu,\
-    nowy_wlasciciel_szukanie_po_wyborze, nowe_naliczenie_wspolnota_po_wyborze
+    nowy_wlasciciel_szukanie_po_wyborze, nowe_naliczenie_wspolnota_po_wyborze, aktualizuj_wlasciciela_historia_wszyscy,\
+    aktualizuj_wlasciciela_po_wyborze, aktualizuj_wlasciciela_sortowanie_po_wyborze, aktualizuj_wlasciciela_po_sortowaniu,\
+    aktualizuj_wlasciciela_po_szukaniu, aktualizuj_wlasciciela_szukanie_po_wyborze, aktualizacja_wlasciciela
 
 urlpatterns = [
     path('index/', index),
@@ -70,4 +72,11 @@ urlpatterns = [
     path('nowe_naliczenie_wspolnota/<wybieracz>/<sorter>/', nowe_naliczenie_wspolnota_po_wyborze_i_sortowaniu),
     path('nowe_naliczenie_wlasciciela/<wybieracz>/', nowe_naliczenie_wlasciciela_po_wyborze),
     path('nowe_naliczenie_wlasciciela/<wybieracz>/<sorter>/', nowe_naliczenie_wlasciciela_po_wyborze_i_sortowaniu),
+    path('aktualizuj_wlasciciela/wszyscy/historia/<int:my_id>/', aktualizuj_wlasciciela_historia_wszyscy),
+    path('aktualizuj_wlasciciela/<int:my_id>/select/<sorter>/', aktualizuj_wlasciciela_po_sortowaniu),
+    path('aktualizuj_wlasciciela/<int:my_id>/filter/<szukacz>/', aktualizuj_wlasciciela_po_szukaniu),
+    path('aktualizuj_wlasciciela/<int:my_id>/<wybieracz>/<where>/', aktualizuj_wlasciciela_po_wyborze),
+    path('aktualizuj_wlasciciela/<int:my_id>/<wybieracz>/<where>/<sorter>/', aktualizuj_wlasciciela_sortowanie_po_wyborze),
+    path('aktualizuj_wlasciciela/<int:my_id>/<wybieracz>/select/filter/<szukacz>/', aktualizuj_wlasciciela_szukanie_po_wyborze),
+    path('aktualizacja_wlasciciela/<int:my_id>/', aktualizacja_wlasciciela),
 ]
