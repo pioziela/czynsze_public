@@ -16,7 +16,11 @@ from create_pdf_documents.views import index, nowa_wspolnota, nowy_wlasciciel, n
     nowe_naliczenie_wlasciciela_po_wyborze, nowe_naliczenie_wspolnota_po_wyborze_i_sortowaniu,\
     nowy_wlasciciel_szukanie_po_wyborze, nowe_naliczenie_wspolnota_po_wyborze, aktualizuj_wlasciciela_historia_wszyscy,\
     aktualizuj_wlasciciela_po_wyborze, aktualizuj_wlasciciela_sortowanie_po_wyborze, aktualizuj_wlasciciela_po_sortowaniu,\
-    aktualizuj_wlasciciela_po_szukaniu, aktualizuj_wlasciciela_szukanie_po_wyborze, aktualizacja_wlasciciela
+    aktualizuj_wlasciciela_po_szukaniu, aktualizuj_wlasciciela_szukanie_po_wyborze, aktualizacja_wlasciciela, usun_wlasciciela_po_sortowaniu, \
+    usun_wlasciciela_po_szukaniu, usun_wlasciciela_po_wyborze, usun_wlasciciela_sortowanie_po_wyborze, usun_wlasciciela_szukanie_po_wyborze,\
+    usun_naliczenie_wspolnoty_po_wyborze, usun_naliczenie_wspolnoty_po_wyborze_i_po_sortowaniu, usun_naliczenie_wlasciciela_po_wyborze,\
+    usun_naliczenie_wlasciciela_po_wyborze_i_po_sortowaniu, usun_wlasciciela_historia, historia_wlasciciela_po_usun,\
+    usun_wlasciciela_historia_wszyscy
 
 urlpatterns = [
     path('index/', index),
@@ -79,4 +83,16 @@ urlpatterns = [
     path('aktualizuj_wlasciciela/<int:my_id>/<wybieracz>/<where>/<sorter>/', aktualizuj_wlasciciela_sortowanie_po_wyborze),
     path('aktualizuj_wlasciciela/<int:my_id>/<wybieracz>/select/filter/<szukacz>/', aktualizuj_wlasciciela_szukanie_po_wyborze),
     path('aktualizacja_wlasciciela/<int:my_id>/', aktualizacja_wlasciciela),
+    path('usun_wlasciciela/<int:my_id>/select/<sorter>/', usun_wlasciciela_po_sortowaniu),
+    path('usun_wlasciciela/<int:my_id>/filter/<szukacz>/', usun_wlasciciela_po_szukaniu),
+    path('usun_wlasciciela/<int:my_id>/<wybieracz>/<where>/', usun_wlasciciela_po_wyborze),
+    path('usun_wlasciciela/<int:my_id>/<wybieracz>/<where>/<sorter>/', usun_wlasciciela_sortowanie_po_wyborze),
+    path('usun_wlasciciela/<int:my_id>/<wybieracz>/select/filter/<szukacz>/', usun_wlasciciela_szukanie_po_wyborze),
+    path('usun_naliczenie_wspolnoty/<int:my_id>/<wybieracz>/', usun_naliczenie_wspolnoty_po_wyborze),
+    path('usun_naliczenie_wspolnoty/<int:my_id>/<wybieracz>/<sorter>', usun_naliczenie_wspolnoty_po_wyborze_i_po_sortowaniu),
+    path('usun_naliczenie_wlasciciela/<int:my_id>/<wybieracz>/', usun_naliczenie_wlasciciela_po_wyborze),
+    path('usun_naliczenie_wlasciciela/<int:my_id>/<wybieracz>/<sorter>', usun_naliczenie_wlasciciela_po_wyborze_i_po_sortowaniu),
+    path('usun_wlasciciela/historia/<int:my_id>/', usun_wlasciciela_historia),
+    path('historia_wlasciciela/<int:my_id>/<int:numer_mieszkania>/', historia_wlasciciela_po_usun),
+    path('usun_wlasciciela/wszyscy/historia/<int:my_id>/', usun_wlasciciela_historia_wszyscy),
 ]
