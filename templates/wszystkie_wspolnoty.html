@@ -35,9 +35,9 @@
               <td><a href="/wspolnota/{{i.id}}/">{{i.wspolnota}}</a></td>
               <td>
                   {% if i.aktywny_do|date:'Y-m-d' > date %}
-                    <img src="/static/kropka_zielona.png" style="max-width:15px" alt="zielona">
+                    <img src="/static/images/kropka_zielona.png" style="max-width:15px" alt="zielona">
                   {% else %}
-                    <img src="/static/kropka_czerwona.png" style="max-width:15px" alt="czerwona">
+                    <img src="/static/images/kropka_czerwona.png" style="max-width:15px" alt="czerwona">
                   {% endif %}
               </td>
               <td>{{i.konto_eksploatacyjne}}</td>
