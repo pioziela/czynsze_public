@@ -1,0 +1,30 @@
+{% extends 'registration/main_login.html' %}
+
+{% load static %}
+
+{% block css %} <link rel="stylesheet" type="text/css" href="{% static '/css/login.css' %}"> {% endblock %}
+
+{% block title %} Naliczenia - logowanie {% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row align-items-center justify-content-center">
+            <div class="col-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="mt-2" align="center">NALICZENIA - LOGOWANIE</h3>
+                        <hr class="mt-0 mb-4">
+                        {% load crispy_forms_tags %}
+                        <form method="post" novalidate>
+                        {% csrf_token %}
+                        {{form|crispy}}
+                        <button type="submit" class="btn btn-primary">ZALOGUJ</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="test_login">Login: test</div>
+        <div class="test_password">Password: try192837+</div>
+    </div>
+{% endblock %}

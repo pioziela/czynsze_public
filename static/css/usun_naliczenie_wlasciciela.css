@@ -1,0 +1,115 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.alert {
+    width: 60%;
+    margin:auto;
+    margin-top: 10vh;
+    background-color: #ff00006e;
+    font-size: 5vh;
+}
+
+.alert-heading {
+    font-size: 4vh;
+}
+
+.alert-success {
+    font-size: 2vh;
+    border-color: #901919;
+    text-align: center;
+    color: black;
+}
+
+.alert-heading {
+    color: #901919;
+}
+
+.alert-success hr {
+    border-top-color: #901919;
+}
+
+.mb-0 {
+    color: #901919;
+}
+
+form {
+    display:flex;
+    width: 100%;
+    justify-content: center;
+    margin-top: 4vh;
+}
+
+button {
+    border: none;
+    background-color: transparent;
+    outline: none;
+}
+
+button:focus {
+    border: none;
+}
+
+.fa-arrow-circle-left {
+    color: orange;
+    font-size: 8vh;
+    margin-left: 2vw;
+}
+
+.fa-check-circle {
+    color: green;
+    font-size: 8vh;
+}
+
+.fa-arrow-circle-left:hover {
+    color: green;
+}
+
+.fa-check-circle:hover {
+    color: red;
+}
+
+.fa-arrow-circle-left .tooltiptext {
+    top:auto;
+    left:auto;
+    margin-left: 2vw;
+    margin-top: 2vh;
+    font-size: 2vh;
+    visibility: hidden;
+    width: 15vw;
+    background-color: green;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    z-index: 2;
+    font-weight: 500;
+    position: absolute;
+}
+
+.fa-check-circle .tooltiptext {
+    font-weight: 500;
+    top:auto;
+    left:auto;
+    margin-left: -18vw;
+    margin-top: 2vh;
+    font-size: 2vh;
+    visibility: hidden;
+    width: 12vw;
+    background-color: red;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    position: absolute;
+}
+
+button i:hover .tooltiptext {
+    visibility: visible;
+}
+
+a:hover .tooltiptext {
+    visibility: visible;
+}

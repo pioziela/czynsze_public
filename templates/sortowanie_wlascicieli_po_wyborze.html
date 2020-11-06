@@ -1,0 +1,130 @@
+{% extends 'data_table_template.html' %}
+
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static '/css/sortowanie_wlascicieli_po_wyborze.css' %}">
+{% endblock %}
+
+{% block title %}
+    {% if lenght == 0 %}
+        Sortowanie wszystkich właścicieli
+    {% else %}
+        Sortowanie właścicieli: {{wspolnota}}
+    {% endif %}
+{% endblock %}
+
+{% block body %}
+
+    <div class="top">
+        <h4>
+            WŁAŚCICIELE:
+            {% if lenght == 0 %}
+                WSZYSCY
+            {% else %}
+                {{wspolnota}}
+            {% endif %}
+        </h4>
+        <p style="font-size:12px; text-align: center;">SORTOWANIE: {{sortowacz}}</p>
+    </div>
+
+    <div style="overflow-x:scroll; overflow-y: scroll; padding: 0px 0px 10px 10px; margin: 0px 10px 0px 0px; max-height: 72vh;">
+        <table>
+            <tr style="position:sticky; top:0; z-index:2;">
+                <th style="min-width:130px;">NAZWISKO</th>
+                <th style="min-width:90px">IMIĘ</th>
+                <th style="min-width:20px"></th>
+                <th style="min-width:140px">WSPÓLNOTA</th>
+                <th style="min-width:160px">ADRES</th>
+                <th style="min-width:140px">MIASTO</th>
+                <th style="min-width:110px">DANE OD</th>
+                <th style="min-width:110px">DANE DO</th>
+                <th style="min-width:90px">POW.</th>
+                <th style="min-width:90px">C.O.</th>
+                <th style="min-width:90px">C.W.</th>
+                <th style="min-width:90px">Z.W.</th>
+                <th style="min-width:90px">KANAŁ</th>
+                <th style="min-width:90px">UCHYŁ</th>
+                <th style="min-width:120px">POS/KOM</th>
+                <th style="min-width:70px">OSÓB</th>
+                <th style="min-width:70px">WINDA</th>
+                <th style="min-width:110px">AKT.OD</th>
+                <th style="min-width:110px">AKT.DO</th>
+                <th style="min-width:140px">AKCJA</th>
+                <th style="min-width:130px;">NAZWISKO</th>
+                <th style="min-width:90px">IMIĘ</th>
+            </tr>
+        {% for i in sortowanie%}
+            <tr>
+                <td>{{i.nazwisko}}</td>
+                <td>{{i.imie}}</td>
+                <td>
+                    {% if i.aktywny_do|date:'Y-m-d' > date %}
+                        <img src="/static/images/kropka_zielona.png" style="max-width:15px" alt="zielona">
+                    {% else %}
+                        <img src="/static/images/kropka_czerwona.png" style="max-width:15px" alt="czerwona">
+                    {% endif %}
+                </td>
+                <td>{{i.wspolnota}}</td>
+                <td>{{i.adres_ulica}} {{i.adres_numer_domu}} / {{i.adres_numer_mieszkania}}</td>
+                <td>{{i.miasto}}</td>
+                <td>{{i.dane_od|date:'Y-m-d'}}</td>
+                <td>{{i.dane_do|date:'Y-m-d'}}</td>
+                <td>{{i.powierzchnia_mieszkania|floatformat:2}} m<sup>2</sup></td>
+                {% if i.zaliczka_CO_miernik > 0 %}
+                    <td>{{i.zaliczka_CO_miernik|floatformat:2}} GJ</td>
+                {% else %}
+                    <td>{{i.zaliczka_CO|floatformat:2}} zł</td>
+                {% endif %}
+                <td>{{i.podgrzanie_wody_objetosc|floatformat:2}} m<sup>3</sup></td>
+                <td>{{i.zimna_woda_objetosc|floatformat:2}} m<sup>3</sup></td>
+                <td>{{i.odprowadzenie_sciekow_objetosc|floatformat:2}} m<sup>3</sup></td>
+                <td>{{i.uchyl_wody|floatformat:2}} m<sup>3</sup></td>
+                <td>{{i.miejsce_postojowe_komorka|floatformat:2}} m<sup>2</sup></td>
+                <td>{{i.ilosc_osob}}</td>
+                <td>{{i.winda}}</td>
+                <td>{{i.aktywny_od|date:'Y-m-d'}}</td>
+                <td>{{i.aktywny_do|date:'Y-m-d'}}</td>
+                <td><a href="/edytuj_wlasciciela/{{i.id}}/{{id}}/select/{{id2}}/"><i class="fa fa-edit" title="EDYTUJ"></i></a>    <a href="/usun_wlasciciela/{{i.id}}/{{id}}/select/{{id2}}/"><i class="fa fa-trash" title="USUŃ"></i></a>       <a href="/historia_wlasciciela/{{i.id}}/"><i class="fa fa-history" title="HISTORIA"></i></a>     <a href="/aktualizuj_wlasciciela/{{i.id}}/{{id}}/select/{{id2}}/"><i class="fa fa-wrench" title="AKTUALIZUJ"></i></a></td>
+                <td>{{i.nazwisko}}</td>
+                <td>{{i.imie}}</td>
+            </tr>
+        {%endfor%}
+        </table>
+    </div>
+
+    <div class="filter">
+        <div class="home">
+            <a href="/index/"><i class="fa fa-home"><span class="tooltiptext">Strona Główna</span></i></a>
+        </div>
+
+        <form method="post" enctype="multipart/form-data">
+            <fieldset style="width:24vw;">
+                <legend>Wybierz</legend>
+                {% csrf_token %}
+                {{ form3 }}
+                <button type="submit"><i class="fa fa-angle-double-right"></i></button>
+            </fieldset>
+        </form>
+
+        <form method="post" enctype="multipart/form-data">
+            <fieldset style="width:25vw;">
+                <legend>Sortowanie</legend>
+                {% csrf_token %}
+                {{ form }}
+                <button type="submit"><i class="fa fa-angle-double-right"></i></button>
+            </fieldset>
+        </form>
+
+        <form method="post" enctype="multipart/form-data">
+            <fieldset style="width:26vw;">
+                <legend>Wyszukaj</legend>
+                {% csrf_token %}
+                {{ form2 }}
+                <button type="submit"><i class="fa fa-angle-double-right"></i></button>
+            </fieldset>
+        </form>
+
+        <div class="add"><a href={{adres}}><i class="fa fa-user-plus"><span class="tooltiptext">Dodaj właściciela</span></i></a></div>
+    </div>
+{% endblock %}

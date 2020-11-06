@@ -1,0 +1,229 @@
+from django.contrib.auth.views import LoginView
+from .forms import CustomAuthenticationForm
+from view_s.index import index
+from view_s.form_s.nowa_wspolnota import nowa_wspolnota
+from view_s.form_s.nowy_wlasciciel import nowy_wlasciciel
+from view_s.form_s.nowe_naliczenie_wspolnota import nowe_naliczenie_wspolnota
+from view_s.form_s.nowe_naliczenie_wlasciciela import nowe_naliczenie_wlasciciela
+from view_s.load_wspolnoty import load_wspolnoty
+from view_s.wszystkie_wspolnoty import wszystkie_wspolnoty
+from view_s.wlasciciele import wlasciciele
+from view_s.wszyscy_wlasciciele import wszyscy_wlasciciele
+from view_s.wszystkie_naliczenia_wlascicieli import wszystkie_naliczenia_wlascicieli
+from view_s.wszystkie_naliczenia_wspolnot import wszystkie_naliczenia_wspolnot
+from view_s.naliczenia import naliczenia
+from view_s.sorting.sortowanie_naliczen_wlascicieli import sortowanie_naliczen_wlascicieli
+from view_s.sorting.sortowanie_naliczen_wspolnot import sortowanie_naliczen_wspolnot
+from view_s.sorting.sortowanie_naliczen_wspolnot_po_wyborze import sortowanie_naliczen_wspolnot_po_wyborze
+from view_s.sorting.sortowanie_naliczen_wlascicieli_po_wyborze import sortowanie_naliczen_wlascicieli_po_wyborze
+from view_s.sorting.sortowanie_wlascicieli_po_wyborze import sortowanie_wlascicieli_po_wyborze
+from view_s.sorting.sortowanie_wlascicieli import sortowanie_wlascicieli
+from view_s.search.wyszukiwanie_wlascicieli_po_wyborze import wyszukiwanie_wlascicieli_po_wyborze
+from view_s.search.wyszukiwanie import wyszukiwanie
+from view_s.selection.wybor_wlascicicieli_wspolnoty import wybor_wlascicicieli_wspolnoty
+from view_s.selection.wybor_naliczen_wspolnot import wybor_naliczen_wspolnot
+from view_s.selection.wybor_naliczen_wlascicieli import wybor_naliczen_wlascicieli
+from view_s.deleting.usun_naliczenie_wspolnoty import usun_naliczenie_wspolnoty
+from view_s.deleting.usun_naliczenie_wlasciciela import usun_naliczenie_wlasciciela
+from view_s.deleting.usun_wspolnote import usun_wspolnote
+from view_s.deleting.usun_wlasciciela import usun_wlasciciela
+from view_s.history.historia_wlasciciela import historia_wlasciciela
+from view_s.history.historia_wszyscy_wlasciciele import historia_wszyscy_wlasciciele
+from view_s.edit.edytuj_wlasciciela import edytuj_wlasciciela
+from view_s.edit.edytuj_wlasciciela_historia import edytuj_wlasciciela_historia
+from view_s.edit.edytuj_wlasciciela_historia_wszyscy import edytuj_wlasciciela_historia_wszyscy
+from view_s.edit.edytuj_naliczenie_wlasciciela import edytuj_naliczenie_wlasciciela
+from view_s.edit.edytuj_naliczenie_wlasciciela_po_wyborze import edytuj_naliczenie_wlasciciela_po_wyborze
+from view_s.edit.edytuj_wspolnote import edytuj_wspolnote
+from view_s.edit.edytuj_naliczenie_wspolnoty_po_wyborze import edytuj_naliczenie_wspolnoty_po_wyborze
+from view_s.edit.edytuj_naliczenie_wspolnoty import edytuj_naliczenie_wspolnoty
+from view_s.edit.edytuj_wlasciciela_szukanie_po_wyborze import edytuj_wlasciciela_szukanie_po_wyborze
+from view_s.edit.edytuj_wlasciciela_sortowanie_po_wyborze import edytuj_wlasciciela_sortowanie_po_wyborze
+from view_s.edit.edytuj_wlasciciela_po_wyborze import edytuj_wlasciciela_po_wyborze
+from view_s.edit.edytuj_wlasciciela_po_sortowaniu import edytuj_wlasciciela_po_sortowaniu
+from view_s.edit.edytuj_wlasciciela_po_szukaniu import edytuj_wlasciciela_po_szukaniu
+from view_s.copy.kopiuj_naliczenie_wspolnoty import kopiuj_naliczenie_wspolnoty
+from view_s.copy.kopiuj_naliczenie_wspolnoty_po_wyborze import kopiuj_naliczenie_wspolnoty_po_wyborze
+from view_s.copy.kopiuj_naliczenie_wlasciciela import kopiuj_naliczenie_wlasciciela
+from view_s.copy.kopiuj_naliczenie_wlasciciela_po_wyborze import kopiuj_naliczenie_wlasciciela_po_wyborze
+from view_s.new_el.nowy_wlasciciel_po_wyborze import nowy_wlasciciel_po_wyborze
+from view_s.new_el.nowy_wlasciciel_sortowanie_po_wyborze import nowy_wlasciciel_sortowanie_po_wyborze
+from view_s.new_el.nowe_naliczenie_wlasciciela_po_wyborze_i_sortowaniu import nowe_naliczenie_wlasciciela_po_wyborze_i_sortowaniu
+from view_s.new_el.nowe_naliczenie_wlasciciela_po_wyborze import nowe_naliczenie_wlasciciela_po_wyborze
+from view_s.new_el.nowe_naliczenie_wspolnota_po_wyborze_i_sortowaniu import nowe_naliczenie_wspolnota_po_wyborze_i_sortowaniu
+from view_s.new_el.nowy_wlasciciel_szukanie_po_wyborze import nowy_wlasciciel_szukanie_po_wyborze
+from view_s.new_el.nowe_naliczenie_wspolnota_po_wyborze import nowe_naliczenie_wspolnota_po_wyborze
+from view_s.actualization.aktualizuj_wlasciciela_historia_wszyscy import aktualizuj_wlasciciela_historia_wszyscy
+from view_s.actualization.aktualizuj_wlasciciela_po_wyborze import aktualizuj_wlasciciela_po_wyborze
+from view_s.actualization.aktualizuj_wlasciciela_sortowanie_po_wyborze import aktualizuj_wlasciciela_sortowanie_po_wyborze
+from view_s.actualization.aktualizuj_wlasciciela_po_sortowaniu import aktualizuj_wlasciciela_po_sortowaniu
+from view_s.actualization.aktualizuj_wlasciciela_po_szukaniu import aktualizuj_wlasciciela_po_szukaniu
+from view_s.actualization.aktualizuj_wlasciciela_szukanie_po_wyborze import aktualizuj_wlasciciela_szukanie_po_wyborze
+from view_s.actualization.aktualizacja_wlasciciela import aktualizacja_wlasciciela
+from view_s.deleting.usun_wlasciciela_po_sortowaniu import usun_wlasciciela_po_sortowaniu
+from view_s.deleting.usun_wlasciciela_po_szukaniu import usun_wlasciciela_po_szukaniu
+from view_s.deleting.usun_wlasciciela_po_wyborze import usun_wlasciciela_po_wyborze
+from view_s.deleting.usun_wlasciciela_sortowanie_po_wyborze import usun_wlasciciela_sortowanie_po_wyborze
+from view_s.deleting.usun_wlasciciela_szukanie_po_wyborze import usun_wlasciciela_szukanie_po_wyborze
+from view_s.deleting.usun_naliczenie_wspolnoty_po_wyborze import usun_naliczenie_wspolnoty_po_wyborze
+from view_s.deleting.usun_naliczenie_wspolnoty_po_wyborze_i_po_sortowaniu import usun_naliczenie_wspolnoty_po_wyborze_i_po_sortowaniu
+from view_s.deleting.usun_naliczenie_wlasciciela_po_wyborze import usun_naliczenie_wlasciciela_po_wyborze
+from view_s.deleting.usun_naliczenie_wlasciciela_po_wyborze_i_po_sortowaniu import usun_naliczenie_wlasciciela_po_wyborze_i_po_sortowaniu
+from view_s.deleting.usun_wlasciciela_historia import usun_wlasciciela_historia
+from view_s.deleting.historia_wlasciciela_po_usun import historia_wlasciciela_po_usun
+from view_s.deleting.usun_wlasciciela_historia_wszyscy import usun_wlasciciela_historia_wszyscy
+from view_s.pdf.pdf_mieszkaniec import pdf_mieszkaniec
+from view_s.pdf.pdf_wspolnota import pdf_wspolnota
+
+
+"""
+View calling login page.
+"""
+class CustomLoginView(LoginView):
+    authentication_form = CustomAuthenticationForm
+
+
+"""
+View calling the home page and naliczenia page.
+"""
+index
+naliczenia
+
+"""
+Views calling new associations, wlasciciel, naliczenia wspolnoty, naliczenia wlasciciela forms.
+"""
+nowa_wspolnota
+nowy_wlasciciel
+nowe_naliczenie_wspolnota
+nowe_naliczenie_wlasciciela
+
+"""
+The function downloads the inhabitants of a given community to the form.
+"""
+load_wspolnoty
+
+"""
+Views calling templates for all associations, inhabitatnts and documents.
+"""
+wszystkie_wspolnoty
+wlasciciele
+wszyscy_wlasciciele
+wszystkie_naliczenia_wspolnot
+wszystkie_naliczenia_wlascicieli
+
+
+"""
+Sorting views
+"""
+sortowanie_naliczen_wlascicieli
+sortowanie_naliczen_wspolnot
+sortowanie_wlascicieli
+sortowanie_naliczen_wspolnot_po_wyborze
+sortowanie_naliczen_wlascicieli_po_wyborze
+sortowanie_wlascicieli_po_wyborze
+
+
+"""
+Searching views
+"""
+wyszukiwanie
+wyszukiwanie_wlascicieli_po_wyborze
+
+
+"""
+Selection views
+"""
+wybor_wlascicicieli_wspolnoty
+wybor_naliczen_wspolnot
+wybor_naliczen_wlascicieli
+
+
+"""
+Deleting association, inhabitant and documents
+"""
+usun_naliczenie_wspolnoty
+usun_naliczenie_wlasciciela
+usun_wspolnote
+usun_wlasciciela
+
+
+"""
+Associations and inhabitants history
+"""
+historia_wlasciciela
+historia_wszyscy_wlasciciele
+
+
+"""
+Edit views inhabitants, associations and documents
+"""
+edytuj_wlasciciela
+edytuj_wlasciciela_historia
+edytuj_wlasciciela_historia_wszyscy
+edytuj_naliczenie_wlasciciela
+edytuj_naliczenie_wlasciciela_po_wyborze
+edytuj_wspolnote
+edytuj_naliczenie_wspolnoty_po_wyborze
+edytuj_naliczenie_wspolnoty
+edytuj_wlasciciela_szukanie_po_wyborze
+edytuj_wlasciciela_sortowanie_po_wyborze
+edytuj_wlasciciela_po_wyborze
+edytuj_wlasciciela_po_sortowaniu
+edytuj_wlasciciela_po_szukaniu
+
+
+"""
+Copy views for documents
+"""
+kopiuj_naliczenie_wspolnoty
+kopiuj_naliczenie_wspolnoty_po_wyborze
+kopiuj_naliczenie_wlasciciela
+kopiuj_naliczenie_wlasciciela_po_wyborze
+
+
+"""
+Add new elements after selection, sorting and searching
+"""
+nowy_wlasciciel_po_wyborze
+nowy_wlasciciel_sortowanie_po_wyborze
+nowe_naliczenie_wlasciciela_po_wyborze_i_sortowaniu
+nowe_naliczenie_wlasciciela_po_wyborze
+nowe_naliczenie_wspolnota_po_wyborze_i_sortowaniu
+nowy_wlasciciel_szukanie_po_wyborze
+nowe_naliczenie_wspolnota_po_wyborze
+
+
+"""
+Actualization views
+"""
+aktualizuj_wlasciciela_historia_wszyscy
+aktualizuj_wlasciciela_po_wyborze
+aktualizuj_wlasciciela_sortowanie_po_wyborze
+aktualizuj_wlasciciela_po_sortowaniu
+aktualizuj_wlasciciela_po_szukaniu
+aktualizuj_wlasciciela_szukanie_po_wyborze
+aktualizacja_wlasciciela
+
+
+"""
+Views deleting inhabitants and documents after selection, sorting, searching and in history
+"""
+usun_wlasciciela_po_sortowaniu
+usun_wlasciciela_po_szukaniu
+usun_wlasciciela_po_wyborze
+usun_wlasciciela_sortowanie_po_wyborze
+usun_wlasciciela_szukanie_po_wyborze
+usun_naliczenie_wspolnoty_po_wyborze
+usun_naliczenie_wspolnoty_po_wyborze_i_po_sortowaniu
+usun_naliczenie_wlasciciela_po_wyborze
+usun_naliczenie_wlasciciela_po_wyborze_i_po_sortowaniu
+usun_wlasciciela_historia
+historia_wlasciciela_po_usun
+usun_wlasciciela_historia_wszyscy
+
+
+"""
+Views creating pdf documents
+"""
+pdf_mieszkaniec
+pdf_wspolnota

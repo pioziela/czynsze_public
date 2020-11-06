@@ -1,0 +1,100 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.card {
+    font-size: 3vh;
+    margin-left: 30vw;
+    margin-right: 30vw;
+    margin-top: 3vh;
+    height: 6vh;
+}
+
+.card-body {
+    font-weight: 500;
+    line-height: 6vh;
+    text-align: center;
+    padding: 0;
+    height: 6vh;
+}
+
+form {
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+    margin-left: 30vw;
+    margin-right: 30vw;
+}
+
+.menu {
+    display: flex;
+    position: fixed;
+    flex-direction: column;
+    top: 15vh;
+    left: 3vw;
+    align-items: center;
+    border-radius: 5%;
+    padding: 3vw;
+}
+
+.fa-building {
+    font-size: 7vh;
+    color: green;
+    margin-bottom: 2vh;
+    text-align: center;
+}
+
+.fa-home {
+    font-size: 9vh;
+    color: green;
+    text-align: center;
+}
+
+.fa-building:hover {
+    color: red;
+}
+
+.fa-home:hover {
+    color: red;
+}
+
+p {
+    text-align: center;
+    font-size: 3vh;
+}
+
+.fa-building .tooltiptext {
+    top:6vh;
+    left: 15vh;
+    font-size: 2vh;
+    visibility: hidden;
+    width: 10vw;
+    background-color: red;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    z-index: 2;
+    font-weight: 500;
+    position: absolute;
+}
+
+.fa-home .tooltiptext {
+    font-weight: 500;
+    top:16vh;
+    left:15vh;
+    font-size: 2vh;
+    visibility: hidden;
+    width: 12vw;
+    background-color: red;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    position: absolute;
+}
+
+a:hover .tooltiptext {
+    visibility: visible;
+}

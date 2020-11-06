@@ -1,0 +1,44 @@
+{% extends 'formularz_template.html' %}
+
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static '/css/wlasciciel_formularz.css' %}">
+{% endblock %}
+
+{% block title %}
+    {% if person == 0 %}
+        Dodawanie nowego właściciela
+    {% elif person == 1 %}
+        Edytuj właściciela: {{wlasciciel}}
+    {% elif person == 2 %}
+        Aktualizuj właściciela: {{wlasciciel}}
+    {% endif %}
+{% endblock %}
+
+{% block body %}
+    <div class="menu">
+        <a href="/wlasciciele/"><i class="fa fa-users"><span class="tooltiptext">Właściciele</span></i></a>
+        <a href="/index/"><i class="fa fa-home"><span class="tooltiptext">Strona Główna</span></i></a>
+    </div>
+
+    <div class="card">
+      <div class="card-body">
+        {% if person == 0 %}
+            STWÓRZ
+        {% elif person == 1 %}
+            EDYTUJ
+        {% elif person == 2 %}
+            AKTUALIZUJ
+        {% endif %}
+          WŁAŚCICIELA
+      </div>
+    </div>
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% load bootstrap %}
+        {{ form|bootstrap }}
+        <button type="submit" class="btn btn-primary">Zapisz</button>
+    </form>
+{% endblock %}
